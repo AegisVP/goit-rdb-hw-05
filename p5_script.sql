@@ -7,9 +7,11 @@ RETURNS FLOAT
 DETERMINISTIC
 NO SQL
 BEGIN
-	DECLARE result FLOAT;
-    SET result = divisor / divider;
-    RETURN result;
+    IF divider = 0 THEN
+        RETURN 0;
+    ELSE
+        RETURN divisor / divider;
+    END IF;
 END //
 
 DELIMITER;
